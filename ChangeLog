@@ -1,0 +1,13 @@
+
+
+0.1b:
+  o  fix broken LGPL text, added copyright to files accidentally missed, make
+     sure we don't release binaries.
+  
+0.1a:
+  o  restructed code to remove redundant headers
+  o  added copyright to files where it was missing
+  o  default to user-level security
+
+0.1:
+  Initial version

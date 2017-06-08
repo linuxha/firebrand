@@ -1,0 +1,35 @@
+This program uses the user-land parallel port interface (ppdev)
+present in the 2.4-linux kernel and later.
+
+Following targets are available
+    firebrand (default) - build library, command-line-interface (CLI) and
+                          misc utilities (that you probably won't need).
+    clean               - remove compiled files, but leave the CLI
+    device              - make a suitable /dev/parport0
+
+So, running "make" (or "make firebrand") will build the CLI.
+
+To gain access to the parallel port one must have sufficient
+privileges for a char-device with major 99, minor 0 (usually
+/dev/parport0).  On Debian systems, this is owned by root:lp, so the
+Makefile will attempt to change the owner-group to lp and make the
+file set-gid.
+
+Alternatively, one can change the program's ownership to root and set
+the file to be set-uid.  This has the advantage of allowing the
+program to use more accurate timing (through the use of the
+"real-time" scheduler), but is a security risk: anyone who can access
+the program can probably overwrite any file on the system.
+
+The third option is not to change ownership nor set any setuid/setgid
+bits.  If your sysadmin has added your account to the group that owns
+/dev/parport0 then no setuid/setgid bits are needed.
+
+For the first two options to succeed, you need to be able to run the
+sudo program.  This is to create lp- or root- owned files
+respectively.  The third option (user-access) does not require sudo.
+
+To change the build process so it produces the CLI as a
+root-owned-suid file, modify src/CLI/Makefile by change the "SECURITY"
+line to either root, lp or user.
+

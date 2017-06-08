@@ -1,0 +1,28 @@
+This is firebrand, a library and sample CLI utility for reading and
+writing to (E)EPROMs using Willem's EPROM programmer.
+
+It currently runs under GNU/Linux, although it is hoped to contain the system-specific
+details to a single file, pin_utils.c.  A generic API (pin_utils.h) should allow the
+software to be ported to other Unix-like OSes.
+
+ ** NB. Don't leave the chip in the device!  Place it in once the CLI says.     **
+ **     There is an unfortunate bug in the kernel that means the chip *might*   **
+ **     be partially erased if left in the holder.  I haven't tested if this    **
+ **     is really a problem.                                                    ** 
+
+For details of the EEPROM programmer hardware, see:
+  http://www.willem.org/
+and
+  http://www.geocities.com/mpu51/eprom/eprom.html
+
+For licensing, see the file COPYING.LIB.  The file COMPILING contains information on
+how to compile the code.
+
+Try:
+  ./firebrand --help
+for hints on how to use the CLI.  Its pretty straight forward.
+
+
+Enjoy!
+
+Paul Millar <paul@astro.gla.ac.uk>

@@ -1,0 +1,99 @@
+2716 (SGS-Thomson M2716 NMOS 16Kib, 2KiB x 8)
+--
+DIP 6 on, 7 off, 8 on
+S6 = /G
+S4 = /EP 
+pin25 = VPP
+
+Read:        /G = LOW,  /EP = LOW
+Deselect:    /G = HIGH
+Standby/PowerDown:      /EP = HIGH
+Programming: /G = HIGH, /EP = LOW, VPP=25V; pulse: /EP = HIGH (45-55ms) LOW.
+Verify:      /G = LOW,  /EP = LOW, VPP=5V/25V
+
+                                ========
+
+
+2732 (SGS-Thomson M2732A NMOS 32Kib, 4KiB x 8)
+--
+DIP
+20=/GVpp (!!) -- output enable
+18=/E         -- chip enable
+
+Read:    /E = LOW, /GVpp = LOW
+Program: /E = LOW, /GVpp = 21V; pulse /E = HIGH (t~50 ms <55ms) LOW.
+
+                                ========
+
+
+27c64 (AMD Am27c64 CMOS 64Kib, 8KiB x 8)
+--
+DIP 1 on, 3 off, 4 on, 5 off, 6 on, 7 off, 8 off, 9 on, 10 off
+S6  = G  -- Output enable
+S4  = P  -- Program enable
+GND = E  -- Chip enable
+
+Read: G = LOW, P = LOW
+Program: VPP = 12.75+/-0.25V, E = LOW, P = LOW, 
+ID mode: manu.code:   G = LOW, A9 = HIGH, A0 = LOW
+         device code: G = LOW, A9 = HIGH, A0 = HIGH
+
+                                ========
+
+27c128 (MicroChip 27C128 CMOS 128Kib, 16KiB x 8)
+--
+DIP 1 on, 3 off, 4 on, 5 off, 6 on, 7 off, 8 off, 9 on, 10 off
+S6  = G  -- Output enable
+S4  = P  -- Program enable
+GND = E  -- Chip enable
+
+Vn = 11-12v
+
+Read: E = LOW, G = LOW, P = HIGH, Vpp = 5v
+Program: VPP = 12.75+/-0.25V, E = LOW, G = HIGH, P = LOW, HIGH, LOW
+Verify: Vpp = 12.75+/-0.25v,  E = LOW, G = LOW,  P = HIGH
+ID mode: manu.code:   G = LOW, P = HIGH, VPP = 5v, A9 = Vh, A0 = LOW
+         device code: G = LOW, P = HIGH, VPP = 5v, A9 = Vh, A0 = HIGH
+
+                                ========
+
+27c256 (Microchip 27c256 CMOS 256Kib, 32KiB x 8)
+--
+DIP 1 on 3 off, 4 off, 5 on, 6 on, 7 off, 8 on, 9 on, 10 off
+S6 = /OE  -- Output enable
+S4 = /CE -- chip enable
+VH = 13V +/- 0.25V (== 12V +/- 0.5V)
+
+Read: /CE = LOW, /OE = LOW (falling edge) 
+Program: Vpp = VH, /OE = HIGH, /CE = LOW; pulse: /CE = HIGH, LOW
+Verify:  Vpp = VH, /CE = HIGH, /OE = LOW
+ID mode: manu. code:  A9 = VH, /CE = LOW, /OE = LOW, A0 = LOW
+         device code: A9 = VH, /CE = LOW, /OE = LOW, A0 = HIGH
+Express: up to 10 100uS program pulse, no over-program
+
+                                ========
+
+27c512 (Atmel AT27C512R CMOS 512 Kib, 64KiB x 8)
+--
+DIP 1 off, 4 off, 5 on, 6 X, 7 Y, 8 off, 9 on, 10 off 
+Program: X off, Y on
+Read:    X on, Y off
+S6 = /OE -- Output enable
+VH = 12V +/- 0.5V
+
+Read: /CE = LOW, /OE = LOW
+Program: /CE = LOW, /OE = VH
+ID mode: manu. code:  A9 = VH, /CE = LOW, /OE = LOW, A0 = LOW
+         device code: A9 = VH, /CE = LOW, /OE = LOW, A0 = HIGH
+
+                                ========
+
+27c1001 (ST M27C1001 1Mib, 128KiB x 8)
+--
+DIP 1 off, 2 off, 3 on, 4 off, 5 on, 6 on, 7 off, 8 on, 11 on, 12 off, B = Left
+S6 = /G
+S4 = /E
+VH = 12V
+
+Read: 
+

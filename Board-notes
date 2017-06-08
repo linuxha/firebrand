@@ -1,0 +1,12 @@
+
+
+three-pin jumper below DIP switches:
+   Controls what is connected to bottom of DIP-switch 3
+      Left: A15 (I believe, some address line anyway)
+      Right: S4
+
+
+three-pin jumper left of DIP switches:
+   Controls what is connected to pin 1 of ZIF
+      Up: A18
+      Down: VPP
